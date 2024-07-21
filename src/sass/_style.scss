@@ -2,18 +2,24 @@ body {
   position: absolute;
 }
 .alert {
-  position: relative;
-  left: 150%;
-  top: 300;
-
   padding: 20px;
   background-color: rgba(0, 255, 34, 0.541);
   border: 2px solid black;
   border-radius: 4px;
   display: inline-block;
-  opacity: 0;
+  cursor: pointer;
 }
 
-.is-visible {
-  opacity: 1;
+.success {
+  position: relative;
+  right: -100%; /* Початкова позиція за межами екрану справа */
+
+  top: 100px; /* Відступ знизу */
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Плавний перехід для transform та opacity */
+  opacity: 0; /* Початкова невидимість */
+}
+
+.success.is-visible {
+  transform: translateX(-100%); /* Переміщення у видиму область */
+  opacity: 1; /* Робить елемент видимим */
 }
