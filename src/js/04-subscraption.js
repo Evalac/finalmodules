@@ -17,6 +17,6 @@ import BSN from 'bootstrap.native';
 //   }, PROMPT_DALLY);
 // }
 
-// const modal = new BSN.Modal('#exampleModal');
+const modal = new BSN.Modal('#staticBackdrop');
 // console.log(modal);
 // console.log(BSN);
