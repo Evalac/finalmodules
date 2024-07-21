@@ -1,0 +1,2 @@
+var logger=function(e){console.log("Лог через ".concat(e,", тому що не відмінили таймаут"))},timeId=setTimeout(logger,2e3,2e3),shouldCancelTime=Math.random()>.3;console.log(shouldCancelTime),shouldCancelTime&&clearTimeout(timeId);var loggerInetr=function(e){console.log("Лог кожні ".concat(e," -").concat(Date.now()))},timeIdIntert=setInterval(loggerInetr,3e3,3e3);shouldCancelTime&&clearInterval(timeIdIntert);
+//# sourceMappingURL=01-timeout.b2ac1a2b.js.map
