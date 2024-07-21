@@ -1,1 +1,0 @@
-{"mappings":"AAAA,IAAMA,KAAO,CACXC,aAAcC,SAASC,cAAc","sources":["src/js/03-notification.js"],"sourcesContent":["const refs = {\n  notification: document.querySelector('.js-alert'),\n};\n"],"names":["refs","notification","document","querySelector"],"version":3,"file":"03-notification.53cb1413.js.map"}
