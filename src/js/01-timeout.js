@@ -9,6 +9,6 @@ setTimeout(() => {
 }, 2000);
 
 console.log('після виклику setTimeout');
-for (let i = 0; i < 100000; i++) {
+for (let i = 0; i < 10000; i++) {
   console.log(i);
 }
