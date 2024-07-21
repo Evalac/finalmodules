@@ -1,4 +1,6 @@
-import BSN from 'bootstrap.native';
+import { Modal } from 'bootstrap.native';
+const modal = new Modal('#staticBackdrop');
+modal.show();
 // {
 //   const PROMPT_DALLY = 1000;
 //   const MAX_PROMPT_ATTEMPS = 3;
@@ -17,6 +19,5 @@ import BSN from 'bootstrap.native';
 //   }, PROMPT_DALLY);
 // }
 
-const modal = new BSN.Modal('#staticBackdrop');
 // console.log(modal);
 // console.log(BSN);
