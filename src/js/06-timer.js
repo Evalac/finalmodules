@@ -1,6 +1,7 @@
 const refs = {
   startBtn: document.querySelector('button[data-action-start]'),
   stopBtn: document.querySelector('button[data-action-stop]'),
+  timerEl: document.querySelector('.timer'),
 };
 
 refs.startBtn.addEventListener('click', onStartTimer);
@@ -8,14 +9,19 @@ refs.stopBtn.addEventListener('click', onStopTimer);
 
 function onStartTimer() {
   timer.start();
+  console.log('click');
 }
 function onStopTimer() {
   timer.stop();
+  console.log('clis');
 }
 
-const timer = {
-  inervalID: null,
-  isActive: false,
+class Timer {
+  constructor({ onTick }) {
+    this.inervalID = null;
+    this.isActive = false;
+    this.onTick = onTick;
+  }
   start() {
     if (this.isActive) {
       return;
@@ -26,14 +32,19 @@ const timer = {
       const currentTime = Date.now();
       const timeDifference = currentTime - startTime;
       const time = getTimeComponents(timeDifference);
-      updateClockFace(time);
+      this.onTick(time);
     }, 1000);
-  },
+  }
+
   stop() {
     clearInterval(this.inervalID);
     this.isActive = false;
-  },
-};
+  }
+}
+
+const timer = new Timer({
+  onTick: updateClockFace,
+});
 
 function pad(value) {
   // функція яка додає 0 перед першим числом якшо вже два числа 0 не додається
@@ -48,4 +59,6 @@ function getTimeComponents(time) {
   return { days, hours, minutes, seconds };
 }
 
-function updateClockFace({ days, hours, minutes, seconds }) {}
+function updateClockFace({ days, hours, minutes, seconds }) {
+  refs.timerEl.textContent = `${days}:${hours}:${minutes}:${seconds}`;
+}
