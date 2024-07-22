@@ -1,0 +1,1 @@
+{"mappings":"AAAA,IAAMA,MAAQ,CACZC,MAAA,WACEC,QAAQC,IAAI,Q,GAIhBH,MAAMC","sources":["src/js/06-timer.js"],"sourcesContent":["const timer = {\n  start() {\n    console.log('start');\n  },\n};\n\ntimer.start();\n"],"names":["timer","start","console","log"],"version":3,"file":"06-timer.43a8aa08.js.map"}
