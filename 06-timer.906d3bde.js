@@ -1,2 +1,0 @@
-var timer={start:function(){var t=Date.now();setInterval((function(){var o=getTimeComponents(Date.now()-t),n=o.days,a=o.hours,e=o.minutes,r=o.seconds;console.log("".concat(n,":").concat(a,":").concat(e,":").concat(r))}),1e3)}};function pad(t){return String(t).padStart(2,"0")}function getTimeComponents(t){return{days:pad(Math.floor(t/1e3/60/60/24)),hours:pad(Math.floor(t/1e3/60/60)%24),minutes:pad(Math.floor(t/1e3/60)%60),seconds:pad(Math.floor(t/1e3)%60)}}timer.start();
-//# sourceMappingURL=06-timer.906d3bde.js.map
