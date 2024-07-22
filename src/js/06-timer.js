@@ -18,6 +18,11 @@ class Timer {
     this.inervalID = null;
     this.isActive = false;
     this.onTick = onTick;
+    this.init();
+  }
+  init() {
+    const time = this.getTimeComponents(0);
+    this.onTick(time);
   }
   start() {
     if (this.isActive) {
