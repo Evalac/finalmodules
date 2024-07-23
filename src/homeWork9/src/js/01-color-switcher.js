@@ -9,6 +9,8 @@ class ChangeColor {
   constructor() {
     this.IsActive = false;
     this.inervalID = null;
+    refs.startBtn.disabled = false;
+    refs.stopBtn.disabled = false;
   }
 
   start() {
@@ -21,10 +23,14 @@ class ChangeColor {
       document.body.style.backgroundColor = color;
     }, 1000);
     this.IsActive = true;
+    refs.startBtn.disabled = true;
+    refs.stopBtn.disabled = false;
   }
   stop() {
     clearInterval(this.inervalId);
     this.IsActive = false;
+    refs.startBtn.disabled = false;
+    refs.stopBtn.disabled = true;
   }
 }
 
