@@ -3,6 +3,8 @@ const refs = {
   stopBtn: document.querySelector('button[data-stop]'),
 };
 
+console.log(refs.startBtn);
+
 class ChangeColor {
   constructor() {
     this.IsActive = false;
