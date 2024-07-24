@@ -23,3 +23,8 @@ body {
   transform: translateX(-100%); /* Переміщення у видиму область */
   opacity: 1; /* Робить елемент видимим */
 }
+
+.field {
+  display: flex;
+  flex-direction: column;
+}

@@ -4,15 +4,6 @@ const refs = {
   timerEl: document.querySelector('.timer'),
 };
 
-// function onStartTimer() {
-//   timer.start();
-//   console.log('click');
-// }
-// function onStopTimer() {
-//   timer.stop();
-//   console.log('clis');
-// }
-
 class Timer {
   constructor({ onTick }) {
     this.inervalID = null;

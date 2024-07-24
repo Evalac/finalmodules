@@ -16,3 +16,28 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.timer {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-around; */
+  background: #8febd4;
+  padding: 20px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.value {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.label {
+}
+
+.field {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+}
