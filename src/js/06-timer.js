@@ -37,6 +37,7 @@ class Timer {
   }
   pad(value) {
     // функція яка додає 0 перед першим числом якшо вже два числа 0 не додається
+
     return String(value).padStart(2, '0');
   }
   getTimeComponents(time) {
@@ -53,7 +54,7 @@ const timer = new Timer({
 });
 
 refs.startBtn.addEventListener('click', timer.start.bind(timer));
-refs.stopBtn.addEventListener('click', timer.stop.bind(timer)); // bind для того щоб привґязати до таймерабо він через this буде ссилатись на дом елемент а не на метод класу
+refs.stopBtn.addEventListener('click', timer.stop.bind(timer)); // bind для того щоб прив`язати до таймера бо він через this буде ссилатись на дом елемент а не на метод класу
 
 function updateClockFace({ days, hours, minutes, seconds }) {
   refs.timerEl.textContent = `${days}:${hours}:${minutes}:${seconds}`;
