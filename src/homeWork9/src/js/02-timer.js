@@ -6,7 +6,6 @@ const refs = {
   buttonEl: document.querySelector('button[data-start]'),
 };
 
-const selectedDates = [];
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -19,22 +18,26 @@ const options = {
 
 const value = flatpickr(refs.inputEl, options);
 
-refs.buttonEl.addEventListener('click', () => {
-  const selectedDate = value.selectedDates[0].getTime();
-  console.log(selectedDate);
+class SaleTimer {
+  constructor() {
+    this.intervalID = null;
+    this.isActive = false;
+  }
 
-  const inervalID = setInterval(() => {
-    const startTime = Date.now();
-    console.log(convertMs(startTime - selectedDate));
+  timerOn() {
+    const selectedDate = value.selectedDates[0].getTime();
+    console.log(selectedDate);
 
-    // console.log('startTime: ', startTime);
-    // const timeDifference = addTime - startTime;
-    // console.log(timeDifference);
-    // console.log(addTime);
-  }, 1000);
+    const inervalID = setInterval(() => {
+      const startTime = Date.now();
+      console.log(convertMs(selectedDate - startTime));
+    }, 1000);
+  }
+}
 
-  // console.log(value);
-});
+const timer = new SaleTimer();
+
+refs.buttonEl.addEventListener('click', timer.timerOn.bind(timer));
 
 function addLeadingZero(value) {
   return String(value).padStart(2, '0');
