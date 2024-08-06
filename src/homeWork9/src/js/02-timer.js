@@ -7,13 +7,33 @@ const refs = {
 };
 
 const selectedDates = [];
-const value = flatpickr(refs.inputEl, {});
+const options = {
+  enableTime: true,
+  time_24hr: true,
+  defaultDate: new Date(),
+  minuteIncrement: 1,
+  onClose(selectedDates) {
+    console.log(selectedDates[0]);
+  },
+};
+
+const value = flatpickr(refs.inputEl, options);
 
 refs.buttonEl.addEventListener('click', () => {
-  console.log(value.selectedDates);
-  console.log(value.now.getTime());
+  const selectedDate = value.selectedDates[0].getTime();
+  console.log(selectedDate);
 
-  console.log(value);
+  const inervalID = setInterval(() => {
+    const startTime = Date.now();
+    console.log(convertMs(startTime - selectedDate));
+
+    // console.log('startTime: ', startTime);
+    // const timeDifference = addTime - startTime;
+    // console.log(timeDifference);
+    // console.log(addTime);
+  }, 1000);
+
+  // console.log(value);
 });
 
 function addLeadingZero(value) {
