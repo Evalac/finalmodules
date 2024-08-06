@@ -1,5 +1,7 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+import Notiflix from 'notiflix';
+import 'notiflix/dist/notiflix-3.2.7.min.css';
 
 const refs = {
   inputEl: document.querySelector('input[type="text"]'),
@@ -18,7 +20,7 @@ const options = {
   onClose(selectedDates) {
     console.log(selectedDates[0]);
     if (selectedDates[0].getTime() <= Date.now()) {
-      window.alert('Please choose a date in the future');
+      Notiflix.Notify.warning('Please choose a date in the future');
       refs.buttonEl.disabled = true;
     } else {
       refs.buttonEl.disabled = false;
