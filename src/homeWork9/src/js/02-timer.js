@@ -4,6 +4,10 @@ import 'flatpickr/dist/flatpickr.min.css';
 const refs = {
   inputEl: document.querySelector('input[type="text"]'),
   buttonEl: document.querySelector('button[data-start]'),
+  daysEl: document.querySelector('span[data-days]'),
+  hoursEl: document.querySelector('span[data-hours]'),
+  minutesEl: document.querySelector('span[data-minutes]'),
+  secondEl: document.querySelector('span[data-seconds]'),
 };
 
 const options = {
@@ -13,6 +17,12 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     console.log(selectedDates[0]);
+    if (selectedDates[0].getTime() <= Date.now()) {
+      window.alert('Please choose a date in the future');
+      refs.buttonEl.disabled = true;
+    } else {
+      refs.buttonEl.disabled = false;
+    }
   },
 };
 
@@ -22,15 +32,23 @@ class SaleTimer {
   constructor() {
     this.intervalID = null;
     this.isActive = false;
+    refs.buttonEl.disabled = true;
   }
 
   timerOn() {
+    if (this.isActive) {
+      return;
+    }
+
+    this.isActive = true;
+
     const selectedDate = value.selectedDates[0].getTime();
-    console.log(selectedDate);
 
     this.inervalID = setInterval(() => {
       const startTime = Date.now();
-      console.log(this.convertMs(selectedDate - startTime));
+      const timeDifference = selectedDate - startTime;
+      const time = this.convertMs(timeDifference);
+      updateTimerFace(time);
     }, 1000);
   }
 
@@ -61,6 +79,14 @@ class SaleTimer {
   }
 }
 
-const timer = new SaleTimer();
+const timer = new SaleTimer({ OnTick: updateTimerFace });
+console.log(timer);
 
 refs.buttonEl.addEventListener('click', timer.timerOn.bind(timer));
+
+function updateTimerFace({ days, hours, minutes, seconds }) {
+  refs.daysEl.textContent = `${days}`;
+  refs.hoursEl.textContent = `${hours}`;
+  refs.minutesEl.textContent = `${minutes}`;
+  refs.secondEl.textContent = `${seconds}`;
+}

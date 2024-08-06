@@ -25,6 +25,8 @@ class Timer {
       const currentTime = Date.now();
       const timeDifference = currentTime - startTime;
       const time = this.getTimeComponents(timeDifference);
+      console.log(time);
+
       this.onTick(time);
     }, 1000);
   }
