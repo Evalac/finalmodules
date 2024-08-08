@@ -1,11 +1,21 @@
-const makeGreeting = guestName => {
-  if (guestName === '' || guestName === undefined) {
-    return Promise.reject('Guest name must not be empty');
+const promise = new Promise((resolve, reject) => {
+  const canFulfille = Math.random() > 0.5;
+  setTimeout(() => {
+    if (canFulfille) {
+      resolve('promise виконан успішно');
+    }
+
+    reject('Promise виконан з помилкою');
+  }, 1000);
+});
+
+// console.log(promise);
+
+promise.then(
+  result => {
+    console.log(`${result}`);
+  },
+  error => {
+    console.log(`${error}`);
   }
-
-  return Promise.resolve(`Welcome ${guestName}`);
-};
-
-makeGreeting('Mango')
-  .then(greeting => console.log(greeting))
-  .catch(error => console.error(error));
+);
