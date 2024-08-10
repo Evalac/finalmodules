@@ -1,22 +1,41 @@
 const horses = ['Secretarit', 'Eclipse', 'Bullet', 'Rocket', 'Flying Fox'];
 
-console.log('Заїзд почався');
-//
-//
+const refs = {
+  raceBtn: document.querySelector('.js-race-btn'),
+  winner: document.querySelector('.winner'),
+  progress: document.querySelector('.progress'),
+  resultTable: document.querySelector('.js-results-table > tbody'),
+};
 
-const promises = horses.map(horse => run(horse));
-console.log(promises);
+refs.raceBtn.addEventListener('click', () => {
+  const promises = horses.map(horse => run(horse));
+  updateWinnerField();
+  updateProgressField(`Заїзд почався ставки не приймаються`);
+  //Promise.race();  цей метод промісу повертає проміс який виконався швидше за інших
+  Promise.race(promises).then(({ horse, time }) => {
+    updateWinnerField(`Переміг ${horse}, фінішував за ${time} часу`);
+    updateResultsTable({ horse, time });
+  });
 
-//Promise.race() цей метод промісу повертає проміс який виконався швидше за інших
-Promise.race(promises).then(({ horse, time }) => {
-  console.log(`Переміг ${horse}, фінішував за ${time} часу`);
+  //Promise.all() повертає масив всіх виконаних промісів
+  Promise.all(promises).then(x => {
+    updateProgressField(`Заїзд закінчен, приймаємо ставки`);
+  });
 });
 
-//Promise.all() повертає масив всіх виконаних промісів
-Promise.all(promises).then(x => {
-  console.log(x);
-  console.log(`Заїзд закінчен, приймаємо ставки`);
-});
+function updateWinnerField(message) {
+  refs.winner.textContent = message;
+}
+
+function updateProgressField(message) {
+  refs.progress.textContent = message;
+}
+
+function updateResultsTable({ horse, time }) {
+  const tr = `<tr><td>0</td><td>${horse}</td><td>${time}</td></tr>`;
+
+  refs.resultTable.innerHTML('beforeend', tr);
+}
 
 function run(horse) {
   return new Promise((resolve, reject) => {
