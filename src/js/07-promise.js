@@ -110,3 +110,25 @@
     console.log('Цей в блоці catch');
   }
 }
+
+{
+  //Заключенння для остаточного засвоення промісів
+  const makePromise = () => {
+    return new Promise((resolve, reject) => {
+      const passed = Math.random() > 0.5;
+
+      if (passed) {
+        resolve('Куку проміс виконався');
+      }
+      reject('Проміс спіймав помилку');
+    });
+  };
+
+  makePromise()
+    .then(result => {
+      console.log(result);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
