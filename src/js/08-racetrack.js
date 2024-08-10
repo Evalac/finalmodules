@@ -34,7 +34,7 @@ function updateProgressField(message) {
 function updateResultsTable({ horse, time }) {
   const tr = `<tr><td>0</td><td>${horse}</td><td>${time}</td></tr>`;
 
-  refs.resultTable.innerHTML('beforeend', tr);
+  refs.resultTable.innerHTML('beforeend', tr); // помилка із за цього(треба розібратись чтому не иалюється таблиця ((закінчив на 1:52)))
 }
 
 function run(horse) {
