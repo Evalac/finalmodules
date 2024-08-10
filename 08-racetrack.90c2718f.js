@@ -1,0 +1,2 @@
+console.log("Заїзд почався");const o=["Secretarit","Eclipse","Bullet","Rocket","Flying Fox"].map((o=>function(o){return new Promise(((e,l)=>{const t=(n=2e3,s=3500,Math.floor(Math.random()*(s-n+1)+n));var n,s;setTimeout((()=>{e({horse:o,time:t})}),t)}))}(o)));console.log(o),Promise.race(o).then((({horse:o,time:e})=>{console.log(`Переміг ${o}, фінішував за ${e} часу`)})),Promise.all(o).then((o=>{console.log(o),console.log("Заїзд закінчен, приймаємо ставки")}));
+//# sourceMappingURL=08-racetrack.90c2718f.js.map
