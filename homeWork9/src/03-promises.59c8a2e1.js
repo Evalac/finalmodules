@@ -1,2 +1,0 @@
-const t={inputDelay:document.querySelector('input[name="delay"]'),inputStep:document.querySelector('input[name="step"]'),inputAmount:document.querySelector('input[name="amount"]'),btnSubmit:document.querySelector('button[type="submit"]')};console.log(t.btnSubmit),t.btnSubmit.addEventListener("click",(()=>{console.log("click")})),function(t,e){const n=Math.random()>.3;return new Promise(((t,o)=>{setTimeout((()=>{n&&t("проміс виконано"),o("помилка")}),e)}))}(0,2e3).then((t=>{console.log(t)})).catch((t=>{console.log(t)}));
-//# sourceMappingURL=03-promises.59c8a2e1.js.map
