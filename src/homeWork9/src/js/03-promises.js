@@ -27,15 +27,21 @@ function onInputValue(evt) {
 
 refs.btnSubmit.addEventListener('click', evt => {
   evt.preventDefault();
-
+  let currentDealy = Number(formData.delay);
   for (let i = 0; i < formData.amount; i++) {
-    createPromise(formData.step, formData.delay)
+    createPromise(i + 1, currentDealy)
       .then(result => {
-        console.log(result);
+        console.log(
+          `✅ Проміс ${i + 1} виконано через ${currentDealy} мс: ${result}`
+        );
       })
       .catch(error => {
-        console.log(error);
+        console.log(
+          `❌ Проміс ${i + 1} не виконано через ${currentDealy} мс: ${error}`
+        );
       });
+
+    currentDealy += Number(formData.step);
   }
 });
 
