@@ -61,3 +61,21 @@ function createPromise(position, delay) {
 }
 
 // трекба зробити щоб в параметри записувались значення з інпутів, скоріш за все на них треба відслідковуння родії зробити, може зробити відслідковування подій за допомогою делегування
+function solution(string) {
+  const result = string.split('').find(letter => letter === ' ' && '');
+  if (result) {
+    return string;
+  } else {
+    const index = string
+      .split('')
+      .findIndex(letter => letter === letter.toUpperCase());
+
+    return string.slice(0, index) + ' ' + string.slice(index);
+  }
+}
+
+console.log(solution(`camelCasing`));
+console.log(solution(`camel Casing`));
+console.log(solution(`camel CasingTest`));
+console.log(solution(``));
+console.log(solution(` `));
