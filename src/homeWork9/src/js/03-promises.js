@@ -1,3 +1,6 @@
+import Notiflix from 'notiflix';
+import 'notiflix/dist/notiflix-3.2.7.min.css';
+
 const refs = {
   btnSubmit: document.querySelector('button[type="submit"]'),
   formEl: document.querySelector('.form'),
@@ -29,15 +32,15 @@ refs.btnSubmit.addEventListener('click', evt => {
   evt.preventDefault();
   let currentDealy = Number(formData.delay);
   for (let i = 0; i < formData.amount; i++) {
-    createPromise(i + 1, currentDealy)
-      .then(result => {
-        console.log(
-          `✅ Проміс ${i + 1} виконано через ${currentDealy} мс: ${result}`
+    createPromise(i, currentDealy)
+      .then(({ position, delay }) => {
+        Notiflix.Notify.success(
+          `✅ Проміс ${position} виконано через ${delay} `
         );
       })
-      .catch(error => {
-        console.log(
-          `❌ Проміс ${i + 1} не виконано через ${currentDealy} мс: ${error}`
+      .catch(({ position, delay }) => {
+        Notiflix.Notify.failure(
+          `❌ Проміс ${position} не виконано через ${delay} `
         );
       });
 
@@ -50,9 +53,9 @@ function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (shouldResolve) {
-        resolve('проміс виконано');
+        resolve({ position, delay });
       }
-      reject('помилка');
+      reject({ position, delay });
     }, delay);
   });
 }
