@@ -1,6 +1,6 @@
 const cartEl = document.querySelector('.pokecart');
 
-fetch('https://pokeapi.co/api/v2/pokemon/1')
+fetch('https://pokeapi.co/api/v2/pokemon/7')
   .then(response => {
     return response.json();
   })
