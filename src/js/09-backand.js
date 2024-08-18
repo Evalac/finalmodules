@@ -1,7 +1,5 @@
-const refs = {
-  cartEl: document.querySelector('.pokecart'),
-  searchForm: document.querySelector('.js-form-search'),
-};
+import { fetchPokemonById } from './helpers/api-service';
+import { refs } from './helpers/refs';
 
 refs.searchForm.addEventListener('submit', onSearch);
 
@@ -16,14 +14,6 @@ function onSearch(e) {
     .finally(() => {
       form.reset();
     });
-}
-
-function fetchPokemonById(pokemonId) {
-  return fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`).then(
-    response => {
-      return response.json();
-    }
-  );
 }
 
 function createMarkup(pokemon) {
