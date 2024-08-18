@@ -43,3 +43,9 @@ function onError(error) {
   console.dir(error);
   alert('Упс щось пішло не так');
 }
+
+// знизу друга вправа по фетчу
+
+fetch('https://pokeapi.co/api/v2/pokemon?limit=50')
+  .then(responce => responce.json())
+  .then(poke => console.log(poke));
