@@ -12,7 +12,7 @@ function onSearch(e) {
 
   fetchPokemonById(searchPoke)
     .then(pokemon => createMarkup(pokemon))
-    .catch(error => console.log(error))
+    .catch(error => onError(error))
     .finally(() => {
       form.reset();
     });
@@ -47,4 +47,9 @@ function createMarkup(pokemon) {
       </div>
     </div>`;
   refs.cartEl.innerHTML = markup;
+}
+
+function onError(error) {
+  console.dir(error);
+  alert('Упс щось пішло не так');
 }
