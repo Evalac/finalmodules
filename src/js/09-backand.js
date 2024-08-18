@@ -1,16 +1,30 @@
-const cartEl = document.querySelector('.pokecart');
+const refs = {
+  cartEl: document.querySelector('.pokecart'),
+  searchForm: document.querySelector('.js-form-search'),
+};
 
-fetch('https://pokeapi.co/api/v2/pokemon/7')
-  .then(response => {
-    return response.json();
-  })
-  .then(pokemon => {
-    console.log(pokemon);
-    createMarkup(pokemon);
-  })
-  .catch(error => {
-    console.log(error);
-  });
+refs.searchForm.addEventListener('submit', onSearch);
+
+function onSearch(e) {
+  e.preventDefault();
+  const form = e.currentTarget;
+  const searchPoke = form.elements.query.value;
+
+  fetchPokemonById(searchPoke)
+    .then(pokemon => createMarkup(pokemon))
+    .catch(error => console.log(error))
+    .finally(() => {
+      form.reset();
+    });
+}
+
+function fetchPokemonById(pokemonId) {
+  return fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`).then(
+    response => {
+      return response.json();
+    }
+  );
+}
 
 function createMarkup(pokemon) {
   const markup = `<div class="card">
@@ -32,5 +46,5 @@ function createMarkup(pokemon) {
         </ul>
       </div>
     </div>`;
-  cartEl.insertAdjacentHTML('beforeend', markup);
+  refs.cartEl.innerHTML = markup;
 }
