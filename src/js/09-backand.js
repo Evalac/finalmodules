@@ -46,6 +46,8 @@ function onError(error) {
 
 // знизу друга вправа по фетчу
 
-fetch('https://pokeapi.co/api/v2/pokemon?limit=50')
-  .then(responce => responce.json())
-  .then(poke => console.log(poke));
+// fetch(
+//   'https://optovik22.net/ua/shopping_cart/checkout/807497607?gad_source=1&gbraid=0AAAAAqkFuEQSoKAHB1GB_WIZ0y8Hcdo6x&gclid=CjwKCAjw2dG1BhB4EiwA998cqHpUuTqOi41BS8nOtCCp2kAr5C9nJtLnf29v82db7svF9gL4Ea94GhoCPHsQAvD_BwE&type=adaptive&source=company_site&companyId=2334820'
+// )
+//   .then(responce => responce.json())
+//   .then(poke => console.log(poke));
