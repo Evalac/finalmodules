@@ -28,9 +28,10 @@ function createMarkup(pokemon) {
         <p class="card-text"><b>Вміння</b></p>
         <ul class="clas-list-group">
           ${pokemon.abilities
-            .map(ability => (
-              <li class="clas-list-item">${ability.ability.name}</li>
-            ))
+            .map(
+              ability =>
+                `<li class="clas-list-item">${ability.ability.name}</li>`
+            )
             .join('')}
         </ul>
       </div>
