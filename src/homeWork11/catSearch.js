@@ -13,14 +13,20 @@ const refs = {
 function ShowLoader(params) {
   refs.loader.classList.remove('hidden');
   refs.loader.classList.add('visible');
+  refs.btnListEl.classList.add('hidden');
+  refs.btnListEl.classList.remove('visible');
 }
 function HideLoader(params) {
   refs.loader.classList.remove('visible');
   refs.loader.classList.add('hidden');
+  refs.btnListEl.classList.add('visible');
+  refs.btnListEl.classList.remove('hidden');
 }
 function ShowError(params) {
   refs.error.classList.remove('hidden');
   refs.error.classList.add('visible');
+  refs.btnListEl.classList.add('hidden');
+  refs.btnListEl.classList.remove('visible');
 }
 function HideError(params) {
   refs.error.classList.remove('visible');
