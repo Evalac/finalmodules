@@ -20,11 +20,14 @@ refs.btnListEl.addEventListener('change', evt => {
 
 fetchCats()
   .then(cats => {
-    cats.map(({ id, name }) => {
+    cats.map(({ id, name, description, temperament }) => {
       const option = document.createElement('option');
       option.value = id;
       option.text = name;
       refs.btnListEl.add(option);
+
+      // createMarkup({ name, description, temperament });
+
       HideLoader();
     });
   })
@@ -32,6 +35,10 @@ fetchCats()
     HideLoader();
     ShowError(error);
   });
+
+// function createMarkup(name, description, temperament) {
+//   console.log(name, description, temperament);
+// }
 
 function fetchCats() {
   ShowLoader();
