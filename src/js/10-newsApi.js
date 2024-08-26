@@ -1,3 +1,13 @@
+const refs = {
+  searchForm: document.querySelector('.search-form'),
+};
+
+refs.searchForm.addEventListener('submit', onSearch);
+
+function onSearch(e) {
+  e.preventDefault();
+}
+
 const options = {
   headers: {
     Authorization: `59ea23f33abe45d5ae23b6a2a5f58a36`,
