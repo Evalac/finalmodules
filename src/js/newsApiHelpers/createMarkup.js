@@ -26,7 +26,7 @@ function createMarkup(data, containerEl) {
     )
     .join();
 
-  return (containerEl.innerHTML = markup);
+  return containerEl.insertAdjacentHTML('beforeend', markup);
 }
 
 export { createMarkup };
