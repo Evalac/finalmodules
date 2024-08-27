@@ -10,14 +10,22 @@ const refs = {
 class LoadMoreBtn {
   constructor({ selector, hidden = false }) {
     console.log(selector);
+    this.refs = this.getRefs(selector);
   }
 
-  getRefs() {}
+  getRefs(selector) {
+    const refs = {};
+    refs.button = document.querySelector(selector);
+    refs.label = refs.button.querySelector('.label');
+    refs.spiner = refs.button.querySelector('.spinner');
+    return refs;
+  }
 }
 
 const loadMoreBtn = new LoadMoreBtn({
-  selector: document.querySelector('[data-action="load-more"]'),
+  selector: '[data-action="load-more"]',
 });
+
 console.log(loadMoreBtn);
 
 const newsApiServise = new NewsApiService();
