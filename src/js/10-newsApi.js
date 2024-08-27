@@ -10,8 +10,6 @@ refs.loadMoreBtn.addEventListener('click', onLoadMore);
 
 const newsApiServise = new NewsApiService();
 
-console.log(newsApiServise);
-
 function onSearch(e) {
   e.preventDefault();
   newsApiServise.query = e.currentTarget.elements.qwery.value;

@@ -19,6 +19,7 @@ class NewsApiService {
       .then(data => {
         this.page += 1;
         console.log(`after`, this);
+        console.log(data);
       });
   }
 
