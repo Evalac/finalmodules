@@ -12,15 +12,19 @@ class NewsApiService {
       },
     };
 
-    const url = `https://newsapi.org/v2/everything?q=${this.searchForm}&language=en&pageSize=5&page=${this.page},`;
+    const url = `https://newsapi.org/v2/everything?q=${this.searchForm}&language=en&pageSize=10&page=${this.page}`;
 
     fetch(url, options)
       .then(responce => responce.json())
       .then(data => {
-        this.page += 1;
-        console.log(`after`, this);
         console.log(data);
+        this.page += 1;
+        // console.log(`after`, this);
       });
+  }
+
+  resetPage() {
+    this.page = 1;
   }
 
   get query() {

@@ -5,14 +5,16 @@ const refs = {
   loadMoreBtn: document.querySelector('.load-more-button'),
 };
 
+const newsApiServise = new NewsApiService();
+
 refs.searchForm.addEventListener('submit', onSearch);
 refs.loadMoreBtn.addEventListener('click', onLoadMore);
 
-const newsApiServise = new NewsApiService();
-
 function onSearch(e) {
   e.preventDefault();
+
   newsApiServise.query = e.currentTarget.elements.qwery.value;
+  newsApiServise.resetPage();
   newsApiServise.fetchArticles();
 }
 
