@@ -1,8 +1,10 @@
 import { NewsApiService } from './newsApiHelpers/news-service';
+import { createMarkup } from './newsApiHelpers/createMarkup';
 
 const refs = {
   searchForm: document.querySelector('.search-form'),
   loadMoreBtn: document.querySelector('.load-more-button'),
+  containerNews: document.querySelector('.contentNews'),
 };
 
 const newsApiServise = new NewsApiService();
@@ -15,7 +17,9 @@ function onSearch(e) {
 
   newsApiServise.query = e.currentTarget.elements.qwery.value;
   newsApiServise.resetPage();
-  newsApiServise.fetchArticles();
+  newsApiServise
+    .fetchArticles()
+    .then(articles => createMarkup(articles, refs.containerNews));
 }
 
 function onLoadMore(e) {

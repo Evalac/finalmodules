@@ -14,12 +14,11 @@ class NewsApiService {
 
     const url = `https://newsapi.org/v2/everything?q=${this.searchForm}&language=en&pageSize=10&page=${this.page}`;
 
-    fetch(url, options)
+    return fetch(url, options)
       .then(responce => responce.json())
       .then(data => {
-        console.log(data);
         this.page += 1;
-        // console.log(`after`, this);
+        return data.articles;
       });
   }
 
