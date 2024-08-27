@@ -46,3 +46,79 @@
 .load-more-button:hover {
   background-color: #218838;
 }
+
+/* Общие стили для статьи */
+.news-article {
+  border: 1px solid #e0e0e0; /* Граница вокруг статьи */
+  border-radius: 8px; /* Закругленные углы */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для объема */
+  padding: 16px; /* Внутренние отступы */
+  margin: 16px 0; /* Отступы сверху и снизу */
+  background-color: #ffffff; /* Фон статьи */
+}
+
+/* Заголовок статьи */
+.article-header {
+  text-align: center; /* Выравнивание текста по центру */
+  margin-bottom: 16px; /* Отступ снизу */
+}
+
+.article-header img {
+  max-width: 100%; /* Картинка занимает всю ширину контейнера */
+  border-radius: 8px; /* Закругленные углы изображения */
+  margin-bottom: 16px; /* Отступ снизу */
+}
+
+.article-title a {
+  text-decoration: none; /* Убираем подчеркивание ссылки */
+  color: #333; /* Цвет текста */
+  font-size: 1.5rem; /* Размер шрифта заголовка */
+  font-weight: bold; /* Полужирный текст */
+}
+
+.article-title a:hover {
+  color: #007bff; /* Цвет текста при наведении */
+}
+
+/* Информация об авторе и дате */
+.article-author,
+.article-date {
+  font-size: 0.9rem; /* Размер шрифта */
+  color: #777; /* Цвет текста */
+  margin: 0; /* Убираем отступы */
+  line-height: 1.6; /* Межстрочный интервал */
+}
+
+/* Описание статьи */
+.article-description {
+  font-size: 1.1rem; /* Размер шрифта описания */
+  color: #555; /* Цвет текста */
+  margin-bottom: 16px; /* Отступ снизу */
+}
+
+/* Основной контент статьи */
+.article-content {
+  font-size: 1rem; /* Размер шрифта */
+  color: #333; /* Цвет текста */
+  line-height: 1.8; /* Межстрочный интервал */
+}
+
+.article-content p {
+  margin-bottom: 16px; /* Отступ снизу для абзацев */
+}
+
+/* Медиа-запрос для адаптивности */
+@media (max-width: 768px) {
+  .news-article {
+    padding: 12px; /* Уменьшение отступов на мобильных устройствах */
+  }
+
+  .article-title a {
+    font-size: 1.3rem; /* Уменьшение размера заголовка на мобильных */
+  }
+
+  .article-description,
+  .article-content {
+    font-size: 1rem; /* Уменьшение размера текста на мобильных */
+  }
+}

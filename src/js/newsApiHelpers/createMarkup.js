@@ -8,8 +8,10 @@ function createMarkup(data, containerEl) {
         publishedAt,
         title,
         url,
+        urlToImage,
       }) => `<article class="news-article">
         <header class="article-header">
+    <img src="${urlToImage}" alt="">
           <h2 class="article-title">
             <a href="${url}" target="_blank">${title}</a>
           </h2>
