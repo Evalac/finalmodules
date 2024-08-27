@@ -23,5 +23,7 @@ function onSearch(e) {
 }
 
 function onLoadMore(e) {
-  newsApiServise.fetchArticles();
+  newsApiServise
+    .fetchArticles()
+    .then(articles => createMarkup(articles, refs.containerNews));
 }
