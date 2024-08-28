@@ -10,7 +10,10 @@ const refs = {
 
 const loadMoreBtn = new LoadMoreBtn({
   selector: '[data-action="load-more"]',
+  hidden: true,
 });
+
+// loadMoreBtn.hide();
 
 const newsApiServise = new NewsApiService();
 
@@ -29,7 +32,7 @@ function onSearch(e) {
 
     createMarkup(articles, refs.containerNews);
     loadMoreBtn.enable();
-    loadMoreBtn.hide();
+    loadMoreBtn.show();
   });
 }
 
@@ -38,7 +41,7 @@ function onLoadMore(e) {
   loadMoreBtn.show();
   newsApiServise.fetchArticles().then(articles => {
     createMarkup(articles, refs.containerNews), loadMoreBtn.enable();
-    loadMoreBtn.hide();
+    loadMoreBtn.show();
   });
 }
 
