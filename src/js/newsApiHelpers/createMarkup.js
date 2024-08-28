@@ -26,7 +26,7 @@ function createMarkup(data, containerEl) {
         </section>
       </article>`
     )
-    .join();
+    .join('');
 
   return containerEl.insertAdjacentHTML('beforeend', markup);
 }

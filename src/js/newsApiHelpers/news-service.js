@@ -15,7 +15,7 @@ class NewsApiService {
       },
     };
 
-    const url = `${BASE_URL}/everything?q=${this.searchForm}&language=en&pageSize=10&page=${this.page}`;
+    const url = `${BASE_URL}/everything?q=${this.searchForm}&language=en&pageSize=4&page=${this.page}`;
 
     return fetch(url, options)
       .then(responce => responce.json())

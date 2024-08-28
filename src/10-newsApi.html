@@ -11,6 +11,7 @@
       <li><a href="./index.html">main-homework</a></li>
       <li><a href="/src/index.html">main-menu</a></li>
     </ul>
+
     <div class="container">
       <form class="search-form">
         <input
@@ -23,22 +24,21 @@
       </form>
     </div>
 
-    <div class="contentNews"></div>
-
-    <button class="load-more-button">Показати ще</button>
-
-    <button
-      type="button"
-      class="btn btn-primary button"
-      data-action="load-more"
-    >
-      <span
-        class="spinner-border spiner-border-sm spinner is-hidden"
-        role="status"
-        aria-hidden="true"
-      ></span>
-      <span class="label">Показати ще...</span>
-    </button>
+    <div class="contentNews articles-container"></div>
+    <div class="btn_posit">
+      <button
+        type="button"
+        class="btn btn-primary button"
+        data-action="load-more"
+      >
+        <span
+          class="spinner-border spiner-border-sm spinner is-hidden"
+          role="status"
+          aria-hidden="true"
+        ></span>
+        <span class="label">Показати ще</span>
+      </button>
+    </div>
 
     <script src="./js/10-newsApi.js" type="module"></script>
   </body>

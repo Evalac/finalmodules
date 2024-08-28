@@ -1,32 +1,16 @@
 import { NewsApiService } from './newsApiHelpers/news-service';
 import { createMarkup } from './newsApiHelpers/createMarkup';
+import { LoadMoreBtn } from './newsApiHelpers/loadMoreBtn';
 
 const refs = {
   searchForm: document.querySelector('.search-form'),
-  loadMoreBtn: document.querySelector('.load-more-button'),
+  loadMoreBtn: document.querySelector('  [data-action="load-more"]'),
   containerNews: document.querySelector('.contentNews'),
 };
-
-class LoadMoreBtn {
-  constructor({ selector, hidden = false }) {
-    console.log(selector);
-    this.refs = this.getRefs(selector);
-  }
-
-  getRefs(selector) {
-    const refs = {};
-    refs.button = document.querySelector(selector);
-    refs.label = refs.button.querySelector('.label');
-    refs.spiner = refs.button.querySelector('.spinner');
-    return refs;
-  }
-}
 
 const loadMoreBtn = new LoadMoreBtn({
   selector: '[data-action="load-more"]',
 });
-
-console.log(loadMoreBtn);
 
 const newsApiServise = new NewsApiService();
 
@@ -38,17 +22,24 @@ function onSearch(e) {
 
   newsApiServise.query = e.currentTarget.elements.qwery.value;
   newsApiServise.resetPage();
-
+  loadMoreBtn.disabled();
+  loadMoreBtn.show();
   newsApiServise.fetchArticles().then(articles => {
     clearArticalsContainer();
+
     createMarkup(articles, refs.containerNews);
+    loadMoreBtn.enable();
+    loadMoreBtn.hide();
   });
 }
 
 function onLoadMore(e) {
-  newsApiServise
-    .fetchArticles()
-    .then(articles => createMarkup(articles, refs.containerNews));
+  loadMoreBtn.disabled();
+  loadMoreBtn.show();
+  newsApiServise.fetchArticles().then(articles => {
+    createMarkup(articles, refs.containerNews), loadMoreBtn.enable();
+    loadMoreBtn.hide();
+  });
 }
 
 function clearArticalsContainer() {
